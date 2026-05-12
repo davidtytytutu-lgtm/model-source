@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Model Gallery</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0e1117;
+    color:white;
+}
+
+/* HEADER */
+header{
+    padding:20px;
+    background:#161b22;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+h1{
+    margin:0 0 15px;
+    font-size:28px;
+}
+
+/* CONTROLS */
+.controls{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    align-items:center;
+}
+
+input{
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    background:#21262d;
+    color:white;
+    outline:none;
+    flex:1;
+    min-width:200px;
+}
+
+.toggle{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#21262d;
+    padding:10px 15px;
+    border-radius:10px;
+}
+
+/* SWITCH */
+.toggle input{
+    width:18px;
+    height:18px;
+}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:20px;
+    padding:20px;
+}
+
+/* MODEL CARD */
+.model{
+    background:#161b22;
+    border-radius:15px;
+    overflow:hidden;
+    transition:0.3s;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.model:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+.model iframe{
+    width:100%;
+    height:260px;
+    border:none;
+}
+
+.info{
+    padding:12px;
+    font-size:14px;
+}
+
+/* BADGES */
+.badge{
+    display:inline-block;
+    margin-top:6px;
+    padding:4px 10px;
+    border-radius:999px;
+    font-size:12px;
+}
+
+.safe{ background:#2ecc71; }
+.nsfw{ background:#e74c3c; }
+
+/* HIDE */
+.hidden{
+    display:none;
+}
+
+/* ANIMATION LOAD */
+.model{
+    opacity:0;
+    transform:translateY(20px);
+    animation:fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎮 3D Model Gallery</h1>
+
+    <div class="controls">
+
+        <input id="search" placeholder="Rechercher un modèle...">
+
+        <div class="toggle">
+            <label>NSFW</label>
+            <input type="checkbox" id="nsfwToggle">
+        </div>
+
+    </div>
+</header>
+
+<div class="gallery" id="gallery">
+
+<!-- ===================== MODELS ===================== -->
+
+<div class="model" data-nsfw="true">
+<iframe title="Tatsumaki In her swimsuit"
+src="https://sketchfab.com/models/f2a9a9c5caa44c01bd7c57168548f16c/embed"></iframe>
+<div class="info">Tatsumaki In her swimsuit <span class="badge nsfw">NSFW</span></div>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="TV"
+src="https://sketchfab.com/models/fed124360b184ffc9dfd561d94c7ac0a/embed"></iframe>
+<div class="info">TV <span class="badge safe">SAFE</span></div>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="Corridor hospital baked reflections"
+src="https://sketchfab.com/models/90c973cf6f6d441987536902a5ffd702/embed"></iframe>
+<div class="info">Corridor hospital <span class="badge safe">SAFE</span></div>
+</div>
+
+<div class="model" data-nsfw="true">
+<iframe title="Marie_nsfw"
+src="https://sketchfab.com/models/f772c3a1de9b442588a34f61467ca61c/embed"></iframe>
+<div class="info">Marie NSFW <span class="badge nsfw">NSFW</span></div>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="Castle Church"
+src="https://sketchfab.com/models/8af2196e9c4a45219a6e9b65000f2109/embed"></iframe>
+<div class="info">Castle Church <span class="badge safe">SAFE</span></div>
+</div>
+
+<div class="model" data-nsfw="true">
+<iframe title="Stylized Frenni Pose (Bikini)"
+src="https://sketchfab.com/models/728b403baa1d47ada4d9d60a620207ff/embed"></iframe>
+<div class="info">Frenni Bikini <span class="badge nsfw">NSFW</span></div>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="ZIL-131 Soviet Truck"
+src="https://sketchfab.com/models/7bcfe414ea3a4514b62b4b84ef35719e/embed"></iframe>
+<div class="info">ZIL-131 Truck <span class="badge safe">SAFE</span></div>
+</div>
+
+<div class="model" data-nsfw="true">
+<iframe title="Tatsumaki and fubuki Together"
+src="https://sketchfab.com/models/ee5c094845e942db932223b3b4476e58/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="true">
+<iframe title="Tatsumaki squatting 2"
+src="https://sketchfab.com/models/b19c8c335af147339dd4e06db8562116/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="true">
+<iframe title="Brazilian Hatsune Miku squatting"
+src="https://sketchfab.com/models/65b8638eabd043498164b0953ce3f163/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="true">
+<iframe title="Tatsufaper"
+src="https://sketchfab.com/models/2dc82324c610479182131359c7d08d17/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="Poppy Playtime Chapter 5 Prototype"
+src="https://sketchfab.com/models/1b5bfb4e980f4d8099a41b154b5a0eb8/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="Huggy Wuggy Unused - Poppy Playtime Chapter 2"
+src="https://sketchfab.com/models/fd42676e23e14255bd5c11f63f08714b/embed?camera=0"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="The One Who Watches"
+src="https://sketchfab.com/models/029328ceee344c05bece46ec7806e461/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="Animated German Shepherd – 3D Animal Model"
+src="https://sketchfab.com/models/3ff58bcbea224720a54d4a2e54226859/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="1984 De Tomaso Pantera GT5-S"
+src="https://sketchfab.com/models/c33032e088fd41e98518e3558645a718/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="1965 Fiat 500F"
+src="https://sketchfab.com/models/91c9a625d0c24026b266fbe68352e6fa/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="2009 Alfa Romeo Brera Ti"
+src="https://sketchfab.com/models/8bfb8d0cdbc4442aa78d229985ca409f/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="2013 Zephyr's Koenigsegg Agera R - Patrol"
+src="https://sketchfab.com/models/6af85a718224478483e700ab757371ea/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="Anvil Odin | Discussing Whatever"
+src="https://sketchfab.com/models/e4a562bae44c4270a2ac09990b8fa394/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="Battlefield 4 - P.L.A Engineer"
+src="https://sketchfab.com/models/5fea05888db1448280a62821c6b7e582/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="Battlefield 4 - P.L.A Support"
+src="https://sketchfab.com/models/4752772d69f549af95eab398b06312e5/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="Battlefield 4 - US Assault"
+src="https://sketchfab.com/models/ef566da6977e4aba908d34181a330b8a/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="Battlefield 4 - AH-1Z Viper"
+src="https://sketchfab.com/models/12dbe9b1958e486dad0f89ee3e1226e5/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="Battlefield 4 - ZBD-09"
+src="https://sketchfab.com/models/1e093125196641f995783deb210ac679/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="Backrooms VR room [Baked]"
+src="https://sketchfab.com/models/b3dc718ea39248feb0120f1c6171419d/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="I Feel Fantastic"
+src="https://sketchfab.com/models/38cb297fdbf74843a8a5e54d047af8a5/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="2012 Audi R8 LMS Ultra"
+src="https://sketchfab.com/models/1faf7b2931444fb49e7c28483ac40c0c/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="2022 Pandem GR86 V1.5 Aero Kit"
+src="https://sketchfab.com/models/04fa19ccee604fc3aab2cc4d62d9dd7f/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="2023 XENO GTspec Wide Body Toyota GR86 (ZN8)"
+src="https://sketchfab.com/models/e60d6a3c73bf42369c045099ef0adf07/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="2023 De Tomaso P900"
+src="https://sketchfab.com/models/f374ec7242314206b96bb35fe2d0011f/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="true">
+<iframe title="Chiku f### With a femboy"
+src="https://sketchfab.com/models/a5d4a2cb42eb461ca5176c0371714214/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="The Tortured"
+src="https://sketchfab.com/models/7c8d0b9633fc4bcbafea064cecaaf2f2/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="The Pale Hound"
+src="https://sketchfab.com/models/8cde517f2c5e4dd299152b0e2902f703/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="true">
+<iframe title="Indica Chiku"
+src="https://sketchfab.com/models/f24d0b519664468190f346b350f13196/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="Heavy Revolver concept"
+src="https://sketchfab.com/models/1470af9c68984b7dbb16954176cb8897/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="2012 Ferrari FF - Patrol"
+src="https://sketchfab.com/models/25f754cfe78a4ec2855f702136ed519c/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="true">
+<iframe title="Nami With glue on the body"
+src="https://sketchfab.com/models/6336050bb48c43f4bffd3adc8dda819e/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="Japan Cyberpunk Scene"
+src="https://sketchfab.com/models/a42c88491248446194b7b7fb9ffa5a84/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="true">
+<iframe title="Tatsumaki naked2 nsfw"
+src="https://sketchfab.com/models/fa3b11ab67ed493cbbb82b6c4802d9d6/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="Black Plasma Robot Mech"
+src="https://sketchfab.com/models/9621f7106cc745c482d1be9476436ff3/embed"></iframe>
+</div>
+
+<div class="model" data-nsfw="false">
+<iframe title="1969 Chevrolet Corvette Stingray 427"
+src="https://sketchfab.com/models/1114862363224283b50070bb79217b13/embed"></iframe>
+</div>
+
+
+<!-- ===================== FIN MODELS ===================== -->
+
+</div>
+
+<script>
+
+const search = document.getElementById("search");
+const toggle = document.getElementById("nsfwToggle");
+const models = document.querySelectorAll(".model");
+
+function update(){
+
+    const value = search.value.toLowerCase();
+
+    models.forEach(model => {
+
+        const title = model.querySelector("iframe").title.toLowerCase();
+        const nsfw = model.dataset.nsfw === "true";
+
+        let show = true;
+
+        if(!title.includes(value)) show = false;
+
+        if(nsfw && !toggle.checked) show = false;
+
+        model.classList.toggle("hidden", !show);
+
+    });
+
+}
+
+search.addEventListener("input", update);
+toggle.addEventListener("change", update);
+
+update();
+
+</script>
+
+</body>
+</html>
